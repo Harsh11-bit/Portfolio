@@ -32,7 +32,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // Connect to MongoDB
-const mongoURI = 'mongodb+srv://tandel:Harsh%401109@cluster0.e0pxpes.mongodb.net/';
+const mongoURI = 'mongodb+srv://tandel:12345@cluster0.dnzstii.mongodb.net/';
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log("MongoDB connection error:", err));
