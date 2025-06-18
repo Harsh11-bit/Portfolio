@@ -7,11 +7,15 @@ require('dotenv').config();
 
 const app = express();
 
-// Middlewares
-app.use(cors());
+// ✅ Secure CORS configuration for production
+app.use(cors({
+  origin: 'https://harshtandel.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-// Remove after migration: app.use('/uploads', express.static(path.join(__dirname, 'Uploads')));
 
 // Connect to MongoDB
 const mongoURI = 'mongodb+srv://tandel:Harsh%401109@cluster0.e0pxpes.mongodb.net/';
