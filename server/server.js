@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 // Remove after migration: app.use('/uploads', express.static(path.join(__dirname, 'Uploads')));
 
 // Connect to MongoDB
-const mongoURI = 'mongodb://localhost:27017/portfolioDb';
+const mongoURI = 'mongodb+srv://tandel:Harsh@1109@cluster0.e0pxpes.mongodb.net/';
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log("MongoDB connection error:", err));
