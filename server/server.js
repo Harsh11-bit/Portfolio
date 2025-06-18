@@ -9,7 +9,7 @@ const app = express();
 
 // ✅ Secure CORS configuration for production
 app.use(cors({
-  origin: 'https://harshtandel.vercel.app',
+  origin: 'https://harsh-tandel.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
