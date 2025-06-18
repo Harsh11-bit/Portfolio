@@ -6,7 +6,7 @@ function Services() {
   const [services, setServices] = useState([]);
   const [selectedService, setSelectedService] = useState(null);
   const containerRef = useRef(null);
-  const BASE_URL = 'http://localhost:5000';
+  const BASE_URL = 'https://portfolio-9unv.onrender.com';
 
   const fetchServices = async () => {
     try {

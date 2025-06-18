@@ -31,7 +31,7 @@ function Contact() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/contacts', formData);
+      await axios.post('https://portfolio-9unv.onrender.com/api/contacts', formData);
       setSuccessMsg("Thank you for contacting us! We'll get back to you soon.");
       setErrorMsg('');
       setIsSubmitted(true);

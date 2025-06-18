@@ -17,7 +17,7 @@ function Home() {
   const [teaserEmail, setTeaserEmail] = useState('');
   const navigate = useNavigate();
 
-  const BASE_URL = 'http://localhost:5000';
+  const BASE_URL = 'https://portfolio-9unv.onrender.com';
 
   useEffect(() => {
     const fetchContent = async () => {

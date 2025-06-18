@@ -9,7 +9,7 @@ function Projects() {
   const containerRef = useRef(null);
   const location = useLocation();
 
-  const BASE_URL = 'http://localhost:5000';
+  const BASE_URL = 'https://portfolio-9unv.onrender.com';
 
   const fetchProjects = async () => {
     try {

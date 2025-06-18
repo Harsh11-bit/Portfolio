@@ -11,7 +11,7 @@ function About() {
   const fetchAbout = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:5000/api/about');
+      const res = await axios.get('https://portfolio-9unv.onrender.com/api/about');
       console.log('API Response (Raw):', res.data);
 
       let data = res.data;

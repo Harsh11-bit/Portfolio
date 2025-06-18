@@ -6,7 +6,7 @@ function Certificates() {
   const [certificates, setCertificates] = useState([]);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const containerRef = useRef(null);
-  const BASE_URL = 'http://localhost:5000';
+  const BASE_URL = 'https://portfolio-9unv.onrender.com';
 
   const fetchCertificates = async () => {
     try {
