@@ -1,0 +1,41 @@
+:root {
+  --bg-color: #0a0a0a;
+  --text-color: #ffffff;         /* pure white everywhere */
+  --accent-color: #00d8ff;       /* aqua blue highlight */
+  --card-bg: #1a1a1a;
+  --card-shadow: rgba(0, 216, 255, 0.3);
+  --transition-speed: 0.3s;
+  --border-radius: 0.75rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure form placeholders are legible */
+input::placeholder,
+textarea::placeholder {
+  color: #cccccc;
+}

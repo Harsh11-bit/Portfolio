@@ -1,0 +1,83 @@
+.contact-manager {
+  padding: 2rem; /* Match AboutManager.css for consistent title positioning */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-manager h2 {
+  color: var(--accent-color);
+  animation: slideInLeft 0.5s ease-out both;
+  text-align: center; /* Center the title */
+  margin-bottom: 1.5rem;
+}
+
+.contact-manager .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.contact-manager .contact-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.contact-manager .contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 234, 255, 0.2);
+}
+
+.contact-manager .contact-details h5 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.contact-manager .contact-details p {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.contact-manager .actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Force all child text white */
+.contact-manager,
+.contact-manager * {
+  color: var(--text-color) !important;
+}
+
+.contact-manager .alert {
+  background-color: #005f6b !important;
+  color: var(--text-color) !important;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .contact-manager .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

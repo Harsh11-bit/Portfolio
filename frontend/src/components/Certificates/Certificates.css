@@ -1,0 +1,367 @@
+:root {
+  --accent-color: #00eaff;
+  --card-bg: #1a1e2a;
+  --text-color: #e6f1fa;
+  --card-shadow: rgba(0, 234, 255, 0.3);
+  --border-radius: 10px;
+}
+
+.certificates {
+  padding: 3rem 1rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.certificates h2 {
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeIn 1s ease-out;
+}
+
+.certificates .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.certificates .card-wrapper {
+  perspective: 1000px;
+  animation: cardEntrance 0.8s ease-out both;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+.certificates .project-card {
+  cursor: pointer;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  width: 360px;
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  clip-path: polygon(
+    15px 0%,
+    calc(100% - 15px) 0%,
+    100% 15px,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    15px 100%,
+    0% calc(100% - 15px),
+    0% 15px
+  );
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.certificates .project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px var(--card-shadow), 0 0 20px rgba(0, 234, 255, 0.4);
+}
+
+.certificates .card-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.certificates .card-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.certificates .project-card:hover .card-image-container::before {
+  opacity: 1;
+}
+
+.certificates .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+.certificates .project-card:hover .card-image {
+  transform: scale(1.1);
+}
+
+.certificates .card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.85);
+  transform: translateY(100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  text-align: center;
+  transition: transform 0.4s ease;
+  z-index: 3;
+}
+
+.certificates .project-card:hover .card-overlay {
+  transform: translateY(0);
+}
+
+.certificates .card-overlay h5 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.certificates .card-overlay .organization {
+  color: #b0b0b0;
+  font-size: 0.8rem;
+  margin: 0.4rem 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.certificates .detailed-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.certificates .detailed-content {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  animation: scaleIn 0.5s ease-out;
+  overflow-y: auto;
+  max-height: 90vh;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) #2a2e3a;
+  clip-path: polygon(
+    15px 0%,
+    calc(100% - 15px) 0%,
+    100% 15px,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    15px 100%,
+    0% calc(100% - 15px),
+    0% 15px
+  );
+}
+
+.certificates .detailed-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.certificates .detailed-content::-webkit-scrollbar-track {
+  background: #2a2e3a;
+  border-radius: 4px;
+}
+
+.certificates .detailed-content::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+.certificates .detailed-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 66.67%;
+  margin-bottom: 2rem;
+}
+
+.certificates .detailed-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.certificates .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--accent-color);
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  z-index: 10;
+}
+
+.certificates .close-btn:hover {
+  transform: scale(1.1);
+  background: #00c0e8;
+}
+
+.certificates .detailed-content h3 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.certificates .detailed-content p {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.certificates .detailed-content h4 {
+  color: var(--accent-color);
+  margin: 1rem 0 0.5rem; /* Reduced top margin from 1.5rem to 1rem, bottom from 0.75rem to 0.5rem */
+  font-size: 1.2rem;
+}
+
+.certificates .detailed-content ul {
+  list-style-type: square;
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem; /* Reduced from 1rem to 0.5rem */
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.certificates .skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem; /* Reduced from 0.5rem to 0.3rem */
+  margin-bottom: 0.5rem; /* Reduced from 1rem to 0.5rem */
+}
+
+.certificates .skill-badge {
+  background: var(--accent-color);
+  color: #000;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.certificates .additional-images-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.certificates .additional-image-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.5rem;
+}
+
+.certificates .additional-image p {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(0, 234, 255, 0);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 10px 30px var(--card-shadow);
+  }
+}
+
+@keyframes cardEntrance {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .certificates .projects-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .certificates .project-card {
+    width: 320px;
+    height: 213px;
+  }
+
+  .certificates .card-overlay {
+    height: 90px;
+    padding: 0.6rem;
+  }
+
+  .certificates .card-overlay h5 {
+    font-size: 1.1rem;
+  }
+
+  .certificates .card-overlay .organization {
+    font-size: 0.75rem;
+  }
+
+  .certificates .detailed-content {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .certificates .detailed-image-container {
+    padding-top: 75%;
+  }
+
+  .certificates h2 {
+    font-size: 2rem;
+  }
+
+  .certificates .close-btn {
+    top: 15px;
+    right: 15px;
+  }
+}

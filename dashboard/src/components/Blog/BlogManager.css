@@ -1,0 +1,189 @@
+.blog-manager {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-manager h2 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  animation: slideInLeft 0.5s ease-out both;
+}
+
+.blog-manager form {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px var(--card-shadow);
+  margin-bottom: 2rem;
+}
+
+.blog-manager .form-control {
+  background-color: #2a2a2a;
+  border: 1px solid #333;
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.blog-manager .form-control:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+.blog-manager .btn-primary {
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.blog-manager .btn-primary:hover {
+  background-color: #00c0e8;
+  transform: translateY(-2px);
+}
+
+.blog-manager .btn-secondary {
+  background-color: #444;
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.blog-manager .btn-secondary:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+.blog-manager .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.blog-manager .btn-danger:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.blog-manager .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.blog-manager .blog-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Make card a positioning context for absolute elements */
+}
+
+.blog-manager .blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 234, 255, 0.2);
+}
+
+.blog-manager .blog-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-manager .blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed);
+}
+
+.blog-manager .blog-card:hover .blog-image img {
+  transform: scale(1.05);
+}
+
+.blog-manager .blog-details {
+  padding: 1.5rem;
+  flex-grow: 1;
+  position: relative; /* Ensure content doesn't overlap with buttons */
+}
+
+.blog-manager .blog-details h5 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.blog-manager .blog-details p {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.blog-manager .technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.blog-manager .tech-badge {
+  background: rgba(0, 234, 255, 0.1);
+  color: var(--accent-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+}
+
+.blog-manager .actions {
+  position: absolute;
+  bottom: 1rem; /* Fixed distance from bottom */
+  right: 1rem; /* Fixed distance from right */
+  margin-top: 0; /* Remove default margin */
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.blog-manager,
+.blog-manager * {
+  color: var(--text-color) !important;
+}
+
+/* Notification styling for Blog updated successfully */
+.blog-manager .notification,
+.blog-manager .alert {
+  background-color: #005f6b !important;
+  color: var(--text-color) !important;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .blog-manager .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

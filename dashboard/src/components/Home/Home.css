@@ -1,0 +1,264 @@
+:root {
+  --accent-color: #00eaff;
+  --card-bg: #112240;
+  --text-color: #ccd6f6;
+  --border-radius: 10px;
+  --card-shadow: rgba(0, 234, 255, 0.1);
+  --transition-speed: 0.3s;
+}
+
+/* Base Home Layout */
+.home {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 2rem;
+}
+
+/* Logout Button */
+.logout-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent-color);
+  color: #112240;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  transition: background var(--transition-speed);
+}
+
+.logout-btn:hover {
+  background: #00c4d4;
+}
+
+/* Title Container for Fixed Height */
+.title-container {
+  position: relative;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+/* Title Card */
+.title-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px var(--card-shadow);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  width: 1072px;
+  height: 80px;
+}
+
+.title-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 234, 255, 0.3);
+}
+
+/* Dashboard Title with Typing Animation */
+.dashboard-title {
+  color: var(--accent-color);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--accent-color);
+  animation: blinkCursor 0.75s step-end infinite;
+}
+
+/* Blinking Cursor Animation */
+@keyframes blinkCursor {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--accent-color); }
+}
+
+/* Summary Slider */
+.summary-slider {
+  overflow: hidden;
+  width: 1072px;
+  height: 250px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.slider-track {
+  display: flex;
+  gap: 24px;
+  animation: slideInfinite 18s linear infinite;
+}
+
+.summary-card-wrapper {
+  flex: 0 0 250px;
+  height: 250px;
+}
+
+.summary-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  text-align: center;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 234, 255, 0.3);
+}
+
+.summary-card .icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.summary-card h3 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.summary-card p {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Chart Containers */
+.chart-container {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  animation: fadeIn 1s ease-out 0.5s forwards;
+  opacity: 0;
+  width: 100%;
+  max-width: 1072px;
+  margin: 0 auto;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.contact-stats-container {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  animation: scaleIn 1s ease-out 0.7s forwards;
+  opacity: 0;
+  width: 100%;
+  max-width: 1072px;
+  margin: 0 auto;
+}
+
+.contact-stats-wrapper {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInfinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-1918px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title-container {
+    height: 120px;
+  }
+  .dashboard-title {
+    font-size: 1.8rem;
+  }
+  .title-card {
+    width: 250px;
+    height: 120px;
+  }
+  .summary-slider {
+    width: 100%;
+  }
+  .slider-track {
+    animation: none;
+  }
+  .summary-card-wrapper {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  .summary-card {
+    width: 100%;
+  }
+  .chart-container {
+    width: 100%;
+    max-width: none;
+  }
+  .contact-stats-container {
+    width: 100%;
+    max-width: none;
+  }
+  .contact-stats-wrapper {
+    max-width: 100%;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-container {
+    height: 100px;
+  }
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
+  .title-card {
+    width: 250px;
+    height: 100px;
+  }
+}

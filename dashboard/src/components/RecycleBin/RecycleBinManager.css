@@ -1,0 +1,164 @@
+.recycle-bin-manager {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.recycle-bin-manager h2 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  animation: slideInLeft 0.5s ease-out both;
+}
+
+.recycle-bin-manager .alert {
+  background-color: #005f6b !important;
+  color: var(--text-color) !important;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+.recycle-bin-manager .recycle-bin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.recycle-bin-manager .recycle-bin-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Enable absolute positioning for .actions */
+}
+
+.recycle-bin-manager .recycle-bin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 234, 255, 0.2);
+}
+
+.recycle-bin-manager .recycle-bin-details {
+  padding: 1.5rem;
+  flex-grow: 1;
+  padding-bottom: 3rem; /* Space for buttons */
+}
+
+.recycle-bin-manager .recycle-bin-details h5 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.recycle-bin-manager .recycle-bin-details p {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.recycle-bin-manager .recycle-bin-details img {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.5rem;
+}
+
+.recycle-bin-manager .technologies .tech-badge {
+  background: #333;
+  color: var(--text-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--border-radius);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.recycle-bin-manager .actions {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  margin-top: 0; /* Override margin-top */
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.recycle-bin-manager .btn-success {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed), transform var(--transition-speed);
+  padding: 0.5rem 1rem; /* Consistent button size */
+  font-size: 0.9rem;
+}
+
+.recycle-bin-manager .btn-success:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.recycle-bin-manager .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed), transform var(--transition-speed);
+  padding: 0.5rem 1rem; /* Consistent button size */
+  font-size: 0.9rem;
+}
+
+.recycle-bin-manager .btn-danger:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.recycle-bin-manager,
+.recycle-bin-manager * {
+  color: var(--text-color) !important;
+}
+
+@media (max-width: 768px) {
+  .recycle-bin-manager .recycle-bin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* New Rules for Button Positioning */
+.recycle-bin-manager .recycle-bin-card {
+  position: relative; /* Enable absolute positioning for .actions */
+}
+
+.recycle-bin-manager .recycle-bin-details {
+  padding-bottom: 3rem; /* Space for buttons */
+}
+
+.recycle-bin-manager .actions {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  margin-top: 0; /* Override margin-top */
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.recycle-bin-manager .btn-success,
+.recycle-bin-manager .btn-danger {
+  padding: 0.5rem 1rem; /* Consistent button size */
+  font-size: 0.9rem;
+}

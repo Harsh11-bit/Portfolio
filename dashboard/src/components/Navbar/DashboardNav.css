@@ -1,0 +1,233 @@
+:root {
+  --primary-bg: #0d0d0d;
+  --accent-color: #00eaff;
+  --text-color: #ffffff;
+  --shadow-color: rgba(0, 234, 255, 0.4);
+  --transition-speed: 0.3s;
+  --border-radius: 6px;
+}
+
+.dashboard-nav {
+  position: fixed;
+  top: 15px;
+  left: 0;
+  right: 0;
+  background: var(--primary-bg);
+  border-bottom: 1px solid var(--shadow-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  z-index: 1000;
+  padding: 1rem 0;
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.nav-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: text-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.nav-brand:hover {
+  text-shadow: 0 0 10px var(--shadow-color);
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-menu.collapse {
+  display: flex; /* Ensure menu is visible by default on desktop */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width var(--transition-speed);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-logout {
+  background: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.8rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
+  box-shadow: 0 0 10px var(--shadow-color);
+  white-space: nowrap;
+}
+
+.nav-logout:hover {
+  background: #00c0e8;
+  box-shadow: 0 0 20px var(--shadow-color);
+  transform: scale(1.1);
+}
+
+.nav-toggler {
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-toggler-icon {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 3px;
+  position: relative;
+  transition: background var(--transition-speed);
+}
+
+.nav-toggler-icon::before,
+.nav-toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 3px;
+  transition: transform var(--transition-speed);
+}
+
+.nav-toggler-icon::before {
+  top: -8px;
+}
+
+.nav-toggler-icon::after {
+  top: 8px;
+}
+
+.nav-toggler[aria-expanded="true"] .nav-toggler-icon {
+  background: transparent;
+}
+
+.nav-toggler[aria-expanded="true"] .nav-toggler-icon::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggler[aria-expanded="true"] .nav-toggler-icon::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 992px) {
+  .nav-toggler {
+    display: block;
+  }
+
+  .nav-menu.collapse {
+    display: none; /* Hide menu by default on mobile */
+  }
+
+  .nav-menu.collapse.show {
+    display: flex; /* Show menu when toggled */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--primary-bg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(0);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-link::after {
+    display: none; /* Remove underline in mobile for cleaner look */
+  }
+
+  .nav-logout {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-brand {
+    font-size: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+  }
+
+  .nav-logout {
+    padding: 0.7rem 1.8rem;
+  }
+}

@@ -1,0 +1,172 @@
+.skill-manager {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skill-manager h2 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  animation: slideInLeft 0.5s ease-out both;
+}
+
+.skill-manager form {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px var(--card-shadow);
+  margin-bottom: 2rem;
+}
+
+.skill-manager .form-control {
+  background-color: #2a2a2a;
+  border: 1px solid #333;
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.skill-manager .form-control:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+.skill-manager .btn-primary {
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.skill-manager .btn-primary:hover {
+  background-color: #00c0e8;
+  transform: translateY(-2px);
+}
+
+.skill-manager .btn-secondary {
+  background-color: #444;
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.skill-manager .btn-secondary:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+.skill-manager .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.skill-manager .btn-danger:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.skill-manager .skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.skill-manager .skill-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Make card a positioning context for absolute elements */
+}
+
+.skill-manager .skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 234, 255, 0.2);
+}
+
+.skill-manager .skill-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.skill-manager .skill-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed);
+}
+
+.skill-manager .skill-card:hover .skill-image img {
+  transform: scale(1.05);
+}
+
+.skill-manager .skill-details {
+  padding: 1.5rem;
+  flex-grow: 1;
+  position: relative; /* Ensure content doesn't overlap with buttons */
+}
+
+.skill-manager .skill-details h5 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.skill-manager .skill-details p {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.skill-manager .actions {
+  position: absolute;
+  bottom: 1rem; /* Fixed distance from bottom */
+  right: 1rem; /* Fixed distance from right */
+  margin-top: 0; /* Remove default margin */
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.skill-manager,
+.skill-manager * {
+  color: var(--text-color) !important;
+}
+
+.skill-manager .alert {
+  background-color: #005f6b !important;
+  color: var(--text-color) !important;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .skill-manager .skill-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

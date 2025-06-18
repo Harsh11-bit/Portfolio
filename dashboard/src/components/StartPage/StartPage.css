@@ -1,0 +1,131 @@
+.start-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background-color: #000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  .loader-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cyber-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top-color: #00ffff;
+    border-bottom-color: #00ffff;
+    animation: spin 2s linear infinite;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  
+  .cyber-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #00ffff;
+    box-shadow: 0 0 15px #00ffff;
+  }
+  
+  .cyber-grid {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+  }
+  
+  .grid-cell {
+    background-color: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .grid-cell:nth-child(odd) {
+    animation: pulse 1.5s infinite ease-in-out alternate;
+  }
+  
+  .grid-cell:nth-child(even) {
+    animation: pulse 1.5s infinite ease-in-out alternate-reverse;
+  }
+  
+  .cyber-text {
+    margin-top: 50px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .cyber-text h1 {
+    color: #00ffff;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  
+  .cyber-text p {
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+  }
+  
+  .cyber-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    margin: 10px auto;
+  }
+  
+  .cyber-progress {
+    width: 80%;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: 30px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #00ffff, #0088ff);
+    animation: progress 3s ease-in-out forwards;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse {
+    0% { background-color: rgba(0, 255, 255, 0.05); }
+    100% { background-color: rgba(0, 255, 255, 0.2); }
+  }
+  
+  @keyframes progress {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }

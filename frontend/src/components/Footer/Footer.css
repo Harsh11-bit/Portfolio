@@ -1,0 +1,91 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensure full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Main content takes remaining space */
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px; /* Hoverable area height */
+  z-index: 1000; /* Ensure it’s above other content */
+  pointer-events: auto; /* Always allow interaction for the container */
+}
+
+.footer {
+  background: #000000; /* Black background */
+  padding: 0.5rem 1rem; /* Compact padding */
+  text-align: center;
+  color: #ffffff; /* White text for visibility */
+  box-shadow: 0 -10px 20px rgba(0, 234, 255, 0.3); /* Aqua blue shadow */
+  min-height: 60px; /* Footer height */
+  display: flex; /* Use flexbox to center content */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  opacity: 0; /* Initially invisible */
+  transform: translateY(10px); /* Start slightly below */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and slide */
+  pointer-events: none; /* Prevent interaction when invisible */
+}
+
+.footer.visible {
+  opacity: 1; /* Visible when conditions are met */
+  transform: translateY(-10px); /* Slide up slightly when visible */
+  pointer-events: auto; /* Allow interaction when visible */
+}
+
+.footer p {
+  font-size: 0.8rem; /* Smaller font size */
+  margin: 0;
+}
+
+.footer a {
+  color: #00eaff; /* Aqua blue for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #00bcd4; /* Slightly darker aqua blue on hover */
+  text-decoration: underline;
+}
+
+.social-links {
+  margin-top: 0.5rem; /* Compact margin */
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Smaller gap */
+}
+
+.social-links a {
+  font-size: 1.5rem; /* Smaller social icon size */
+  transition: transform 0.3s ease;
+  color: #ffffff; /* White social icons */
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  color: #00eaff; /* Aqua blue on hover */
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    height: 70px; /* Slightly smaller hoverable area for mobile */
+  }
+
+  .footer {
+    padding: 0.4rem 1rem; /* Compact padding for mobile */
+    min-height: 50px; /* Slightly smaller min-height for mobile */
+  }
+  
+  .social-links {
+    gap: 0.8rem; /* Smaller gap for mobile */
+  }
+}
