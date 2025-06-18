@@ -9,9 +9,9 @@ const app = express();
 
 // ✅ Updated CORS configuration to allow multiple origins
 const allowedOrigins = [
-  'https://harsh-tandel-admin.vercel.app',
+  'https://harshtandeladmin.vercel.app',
   'https://portfolio-front-ecru-zeta.vercel.app',
-  'https://harsh-tandel.vercel.app' // Include this if still needed
+  'https://harshtandel.vercel.app' // Include this if still needed
 ];
 
 app.use(cors({
