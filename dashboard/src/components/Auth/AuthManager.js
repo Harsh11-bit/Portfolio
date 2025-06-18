@@ -24,7 +24,7 @@ function AuthManager({ onLogin, loggedIn }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', loginData);
+      const response = await axios.post('https://portfolio-9unv.onrender.com/api/auth/login', loginData);
       setMessage(response.data.message);
       onLogin();
       navigate('/', { replace: true });

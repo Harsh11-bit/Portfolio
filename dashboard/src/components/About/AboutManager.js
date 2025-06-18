@@ -18,7 +18,7 @@ function AboutManager() {
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const BASE_URL = 'http://localhost:5000';
+  const BASE_URL = 'https://portfolio-9unv.onrender.com';
 
   const fetchAbouts = async () => {
     try {

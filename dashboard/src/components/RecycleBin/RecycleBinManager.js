@@ -9,7 +9,7 @@ function RecycleBinManager() {
   const [error, setError] = useState('');
   const [actionLoading, setActionLoading] = useState({});
 
-  const BASE_URL = 'http://localhost:5000';
+  const BASE_URL = 'https://portfolio-9unv.onrender.com';
 
   const fetchRecycleItems = async () => {
     try {

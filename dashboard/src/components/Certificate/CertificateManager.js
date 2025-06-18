@@ -20,7 +20,7 @@ function CertificateManager() {
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const BASE_URL = 'http://localhost:5000';
+  const BASE_URL = 'https://portfolio-9unv.onrender.com';
 
   const validateFile = (file) => {
     if (!file) return true; // Allow empty file for edits

@@ -33,7 +33,7 @@ function Home() {
     const newErrors = [];
     
     try {
-      const aboutRes = await axios.get('http://localhost:5000/api/about');
+      const aboutRes = await axios.get('https://portfolio-9unv.onrender.com/api/about');
       console.log('About API response:', aboutRes.data);
       const aboutData = Array.isArray(aboutRes.data) ? aboutRes.data : [];
       setAboutTitle(aboutData.length > 0 ? aboutData[0].title || '' : '');
@@ -45,7 +45,7 @@ function Home() {
     }
 
     try {
-      const projectRes = await axios.get('http://localhost:5000/api/projects');
+      const projectRes = await axios.get('https://portfolio-9unv.onrender.com/api/projects');
       console.log('Projects API response:', projectRes.data);
       setProjectCount(Array.isArray(projectRes.data) ? projectRes.data.length : 0);
     } catch (err) {
@@ -55,7 +55,7 @@ function Home() {
     }
 
     try {
-      const serviceRes = await axios.get('http://localhost:5000/api/services');
+      const serviceRes = await axios.get('https://portfolio-9unv.onrender.com/api/services');
       console.log('Services API response:', serviceRes.data);
       setServiceCount(Array.isArray(serviceRes.data) ? serviceRes.data.length : 0);
     } catch (err) {
@@ -65,7 +65,7 @@ function Home() {
     }
 
     try {
-      const blogRes = await axios.get('http://localhost:5000/api/blog');
+      const blogRes = await axios.get('https://portfolio-9unv.onrender.com/api/blog');
       console.log('Blog API response:', blogRes.data);
       setBlogCount(Array.isArray(blogRes.data) ? blogRes.data.length : 0);
     } catch (err) {
@@ -75,7 +75,7 @@ function Home() {
     }
 
     try {
-      const certificateRes = await axios.get('http://localhost:5000/api/certificates');
+      const certificateRes = await axios.get('https://portfolio-9unv.onrender.com/api/certificates');
       console.log('Certificates API response:', certificateRes.data);
       setCertificateCount(Array.isArray(certificateRes.data) ? certificateRes.data.length : 0);
     } catch (err) {
@@ -85,7 +85,7 @@ function Home() {
     }
 
     try {
-      const contactRes = await axios.get('http://localhost:5000/api/contacts');
+      const contactRes = await axios.get('https://portfolio-9unv.onrender.com/api/contacts');
       console.log('Contacts API response:', contactRes.data);
       const contacts = Array.isArray(contactRes.data) ? contactRes.data : [];
       setContactCount(contacts.length);
@@ -131,7 +131,7 @@ function Home() {
     }
 
     try {
-      const skillRes = await axios.get('http://localhost:5000/api/skills');
+      const skillRes = await axios.get('https://portfolio-9unv.onrender.com/api/skills');
       console.log('Skills API response:', skillRes.data);
       setSkillCount(Array.isArray(skillRes.data) ? skillRes.data.length : 0);
     } catch (err) {
@@ -141,7 +141,7 @@ function Home() {
     }
 
     try {
-      const recycleBinRes = await axios.get('http://localhost:5000/api/recycle-bin');
+      const recycleBinRes = await axios.get('https://portfolio-9unv.onrender.com/api/recycle-bin');
       console.log('Recycle Bin API response:', recycleBinRes.data);
       const recycleBinData = Array.isArray(recycleBinRes.data) ? recycleBinRes.data : [];
       setRecycleBinCount(recycleBinData.length);
