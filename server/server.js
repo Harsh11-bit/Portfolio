@@ -7,9 +7,23 @@ require('dotenv').config();
 
 const app = express();
 
-// ✅ Secure CORS configuration for production
+// ✅ Updated CORS configuration to allow multiple origins
+const allowedOrigins = [
+  'https://harsh-tandel-admin.vercel.app',
+  'https://portfolio-front-ecru-zeta.vercel.app',
+  'https://harsh-tandel.vercel.app' // Include this if still needed
+];
+
 app.use(cors({
-  origin: 'https://harsh-tandel-admin.vercel.app',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
