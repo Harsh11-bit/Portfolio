@@ -19,7 +19,7 @@ function ContactManager() {
       data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       setContacts(data);
     } catch (err) {
-      console.error('Error fetching contacts:', err);
+      console.error('Error fetching contacts:', err.message, err.response?.data);
       setMessage('Error fetching contacts.');
     } finally {
       setIsLoading(false);
@@ -34,11 +34,11 @@ function ContactManager() {
     if (isLoading) return;
     setIsLoading(true);
     try {
-      await axios.delete(`hhttps://portfolio-9unv.onrender.com/api/contacts/${id}`);
+      await axios.delete(`https://portfolio-9unv.onrender.com/api/contacts/${id}`); // Fixed URL
       setContacts(contacts.filter(contact => contact._id !== id));
       setMessage('Contact moved to recycle bin!');
     } catch (err) {
-      console.error('Error deleting contact:', err);
+      console.error('Error deleting contact:', err.message, err.response?.data);
       setMessage('Error moving contact to recycle bin.');
     } finally {
       setIsLoading(false);
