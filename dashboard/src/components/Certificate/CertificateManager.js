@@ -128,19 +128,24 @@ function CertificateManager() {
       if (formData.mainImage) {
         data.append('mainImage', formData.mainImage);
       }
-      const additionalImageDescriptions = formData.additionalImages.map(img => img.description);
+
+      // Prepare additional images and descriptions
+      const additionalImageDescriptions = [];
+      const existingImages = [];
       formData.additionalImages.forEach((img, index) => {
         if (img.file) {
-          data.append('additionalImages', img.file);
+          data.append(`additionalImages`, img.file); // Append each file
+          additionalImageDescriptions.push(img.description || '');
+        } else if (img.existingUrl) {
+          existingImages.push({ url: img.existingUrl, description: img.description || '' });
+          additionalImageDescriptions.push(img.description || '');
         }
       });
+
       data.append('additionalImageDescriptions', JSON.stringify(additionalImageDescriptions));
+      data.append('existingAdditionalImages', JSON.stringify(existingImages));
       data.append('additionalDescription', formData.additionalDescription);
       data.append('highlights', JSON.stringify(formData.highlights.filter(h => h.trim() !== '')));
-      const existingImages = formData.additionalImages
-        .filter(img => img.existingUrl)
-        .map(img => ({ url: img.existingUrl, description: img.description }));
-      data.append('existingAdditionalImages', JSON.stringify(existingImages));
 
       let newCertificate;
       if (editingId) {

@@ -50,7 +50,7 @@
 }
 
 .nav-menu.collapse {
-  display: flex; /* Ensure menu is visible by default on desktop */
+  display: flex; /* Visible by default on desktop */
 }
 
 .nav-links {
@@ -170,14 +170,15 @@
 @media (max-width: 992px) {
   .nav-toggler {
     display: block;
+    z-index: 1001;
   }
 
   .nav-menu.collapse {
-    display: none; /* Hide menu by default on mobile */
+    display: none; /* Hidden by default on mobile */
   }
 
   .nav-menu.collapse.show {
-    display: flex; /* Show menu when toggled */
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -187,34 +188,53 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    transform: translateX(0);
-    transition: transform 0.4s ease-in-out;
+    gap: 3rem;
+    animation: slideIn 0.4s ease-in-out forwards;
+    overflow-y: auto;
+    padding: 4rem 2rem;
+    box-sizing: border-box;
   }
 
   .nav-links {
     flex-direction: column;
-    gap: 2rem;
-    text-align: center;
+    gap: 2.5rem;
+    width: 100%;
+    align-items: center;
   }
 
   .nav-link {
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    text-align: center;
+    border-radius: var(--border-radius);
+    transition: background var(--transition-speed), color var(--transition-speed);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(0, 234, 255, 0.1);
+    color: var(--accent-color);
+    transform: none;
   }
 
   .nav-link::after {
-    display: none; /* Remove underline in mobile for cleaner look */
+    display: none; /* Remove underline for cleaner mobile look */
   }
 
   .nav-logout {
-    padding: 0.8rem 2rem;
-    font-size: 1.2rem;
-    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    border-radius: var(--border-radius);
+    width: 80%;
+    max-width: 300px;
   }
 
   .nav-container {
     padding: 0 1.5rem;
+    position: relative;
   }
 }
 
@@ -224,10 +244,33 @@
   }
 
   .nav-link {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    padding: 0.7rem 1rem;
   }
 
   .nav-logout {
-    padding: 0.7rem 1.8rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    width: 90%;
   }
+
+  .nav-toggler-icon,
+  .nav-toggler-icon::before,
+  .nav-toggler-icon::after {
+    width: 24px;
+    height: 2.5px;
+  }
+
+  .nav-toggler-icon::before {
+    top: -7px;
+  }
+
+  .nav-toggler-icon::after {
+    top: 7px;
+  }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }

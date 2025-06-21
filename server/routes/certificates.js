@@ -68,12 +68,20 @@ router.post('/', upload.fields([
   try {
     const { title, issuingOrganization, issueDate, skills, additionalDescription, highlights, additionalImageDescriptions } = req.body;
     const mainImage = req.files.mainImage ? req.files.mainImage[0].path : '';
+
+    // Parse additional image descriptions
+    let descriptions = [];
+    try {
+      descriptions = additionalImageDescriptions ? JSON.parse(additionalImageDescriptions) : [];
+    } catch (err) {
+      console.error('Error parsing additionalImageDescriptions:', err);
+    }
+
+    // Handle additional images
     const additionalImages = req.files.additionalImages
       ? req.files.additionalImages.map((file, index) => ({
           url: file.path,
-          description: additionalImageDescriptions
-            ? JSON.parse(additionalImageDescriptions)[index] || ''
-            : '',
+          description: descriptions[index] || '',
         }))
       : [];
 
@@ -117,14 +125,21 @@ router.put('/:id', upload.fields([
       mainImage = req.files.mainImage[0].path;
     }
 
-    // Handle additional images
-    const existingImages = existingAdditionalImages ? JSON.parse(existingAdditionalImages) : [];
+    // Parse additional image descriptions and existing images
+    let descriptions = [];
+    let existingImages = [];
+    try {
+      descriptions = additionalImageDescriptions ? JSON.parse(additionalImageDescriptions) : [];
+      existingImages = existingAdditionalImages ? JSON.parse(existingAdditionalImages) : [];
+    } catch (err) {
+      console.error('Error parsing JSON fields:', err);
+    }
+
+    // Handle new additional images
     const newAdditionalImages = req.files.additionalImages
       ? req.files.additionalImages.map((file, index) => ({
           url: file.path,
-          description: additionalImageDescriptions
-            ? JSON.parse(additionalImageDescriptions)[index] || ''
-            : '',
+          description: descriptions[existingImages.length + index] || '',
         }))
       : [];
 

@@ -6,11 +6,12 @@
   --dark-bg: #0a192f;
   --darker-bg: #020c1b;
   --light-text: #ccd6f6;
-  --lighter-text: #e6f1ff;
+;
+  --lighter-text: #e6f1f1;
   --dark-text: #8892b0;
   --card-bg: rgba(17, 34, 64, 0.5);
   --card-shadow: rgba(0, 234, 255, 0.2);
-  --neon-glow: rgba(0, 234, 255, 0.6);
+  --neon-glow: rgba(0,234,255,0.6);
   --mirror-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
 }
 
@@ -734,14 +735,21 @@ section {
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding-top: 4rem;
+    min-height: auto;
+    padding-bottom: 6rem; /* Space for social links and scroll indicator */
+  }
+
   .hero-content {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
 
-  .hero-buttons {
-    justify-content: center;
+  .hero-image {
+    order: -1;
+    max-width: 300px;
   }
 
   .image-container {
@@ -749,16 +757,67 @@ section {
     height: 250px;
   }
 
+  .hero-text {
+    order: 0;
+  }
+
+  .welcome-message {
+    order: 1;
+    position: static;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .welcome-underline {
+    margin: 0.6rem auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
   .social-links {
     position: static;
     flex-direction: row;
     justify-content: center;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    z-index: 10;
+  }
+
+  .scroll-indicator {
+    position: static;
+    margin: 1rem auto; /* Center horizontally */
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ensure it takes full width for centering */
+    transform: none; /* Remove transform for static positioning */
   }
 
   .contact-content {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .contact-text h3 {
+    font-size: 1.2rem;
+  }
+
+  .contact-text p {
+    font-size: 0.8rem;
+  }
+
+  .form-input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-form {
+    max-width: 100%;
   }
 
   .skills-grid, .blog-grid {
@@ -789,16 +848,20 @@ section {
     padding: 2rem 0.5rem;
   }
 
+  .hero-section {
+    padding-bottom: 5rem;
+  }
+
   .hero-title {
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
   }
 
   .profession {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
   }
 
   .image-container {
@@ -847,5 +910,28 @@ section {
 
   .project-overlay p, .blog-overlay p {
     font-size: 0.8rem;
+  }
+
+  .contact-text h3 {
+    font-size: 1rem;
+  }
+
+  .contact-text p {
+    font-size: 0.7rem;
+  }
+
+  .form-input {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .social-links {
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .scroll-indicator {
+    margin: 0.8rem auto;
+    margin-bottom: 1.5rem;
   }
 }
