@@ -1,108 +1,140 @@
-/* components/StartPage/StartPage.css */
-.start-page-container {
+.splash-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #0a0a0a;
+  background: #121212;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
   overflow: hidden;
+  z-index: 1000;
 }
 
-.cyberpunk-loader {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin-bottom: 2rem;
-}
-
-.cyberpunk-cube {
+.wave-background {
   position: absolute;
   width: 100%;
   height: 100%;
-  transform-style: preserve-3d;
-  animation: rotate 8s infinite linear;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 247, 255, 0.1) 0%,
+    transparent 50%
+  );
+  animation: wave 12s infinite linear;
 }
 
-.cyberpunk-cube .face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 3px solid #0ff;
-  background: rgba(0, 255, 255, 0.1);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
 }
 
-.cyberpunk-cube .front { transform: translateZ(100px); }
-.cyberpunk-cube .back { transform: translateZ(-100px) rotateY(180deg); }
-.cyberpunk-cube .right { transform: rotateY(90deg) translateZ(100px); }
-.cyberpunk-cube .left { transform: rotateY(-90deg) translateZ(100px); }
-.cyberpunk-cube .top { transform: rotateX(90deg) translateZ(100px); }
-.cyberpunk-cube .bottom { transform: rotateX(-90deg) translateZ(100px); }
-
-@keyframes rotate {
-  0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
-  100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-}
-
-.neon-text {
-  color: #0ff;
-  font-family: 'Arial Narrow', sans-serif;
-  font-size: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  text-shadow: 0 0 10px #0ff,
-               0 0 20px #0ff,
-               0 0 30px #0ff;
-  margin-bottom: 1rem;
-}
-
-.cyberpunk-subtitle {
-  color: #fff;
-  font-family: 'Courier New', monospace;
-  font-size: 1.2rem;
+.logo-container {
   text-align: center;
-  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
 }
 
-.progress-container {
-  width: 300px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  margin-top: 2rem;
+.pulse-text {
+  color: #00f7ff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 0 0 15px #00f7ff, 0 0 25px #00f7ff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.subtitle {
+  color: #00f7ff;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+.progress-wrapper {
+  width: 70%;
+  max-width: 350px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
   position: relative;
-  border-radius: 2px;
+  overflow: hidden;
 }
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #0ff, #0af);
-  transition: width 0.1s linear;
-  border-radius: 2px;
+  background: #00f7ff;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #00f7ff;
 }
 
 .progress-text {
   position: absolute;
-  right: -40px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #0ff;
-  font-family: 'Courier New', monospace;
+  top: -22px;
+  right: 0;
+  color: #00f7ff;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
 }
 
-.cyberpunk-grid {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
-  pointer-events: none;
-  z-index: -1;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pulse-text {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .progress-wrapper {
+    width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .pulse-text {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .progress-wrapper {
+    width: 90%;
+    height: 4px;
+  }
+
+  .progress-text {
+    font-size: 0.75rem;
+    top: -18px;
+  }
 }

@@ -1,4 +1,3 @@
-// components/StartPage/StartPage.js
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './StartPage.css';
@@ -13,7 +12,7 @@ const StartPage = () => {
           clearInterval(interval);
           return 100;
         }
-        return prev + 1;
+        return prev + 2;
       });
     }, 50);
 
@@ -22,39 +21,33 @@ const StartPage = () => {
 
   return (
     <motion.div
-      className="start-page-container"
+      className="splash-container"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.7 }}
     >
-      <div className="cyberpunk-loader">
-        <div className="cyberpunk-cube">
-          <div className="face front"></div>
-          <div className="face back"></div>
-          <div className="face right"></div>
-          <div className="face left"></div>
-          <div className="face top"></div>
-          <div className="face bottom"></div>
-        </div>
-      </div>
-
+      <div className="wave-background"></div>
+      
       <motion.div
-        className="loading-text"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
+        className="logo-container"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
       >
-        <h1 className="neon-text">HARSH TANDEL</h1>
-        <p className="cyberpunk-subtitle">INITIALIZING SYSTEM</p>
+        <h1 className="pulse-text">HARSH TANDEL</h1>
+        <p className="subtitle">Initializing Portfolio</p>
       </motion.div>
 
-      <div className="progress-container">
-        <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+      <div className="progress-wrapper">
+        <motion.div
+          className="progress-bar"
+          initial={{ width: 0 }}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.2 }}
+        ></motion.div>
         <span className="progress-text">{progress}%</span>
       </div>
-
-      <div className="cyberpunk-grid"></div>
     </motion.div>
   );
 };

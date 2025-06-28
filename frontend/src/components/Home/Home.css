@@ -6,12 +6,11 @@
   --dark-bg: #0a192f;
   --darker-bg: #020c1b;
   --light-text: #ccd6f6;
-;
   --lighter-text: #e6f1f1;
   --dark-text: #8892b0;
   --card-bg: rgba(17, 34, 64, 0.5);
   --card-shadow: rgba(0, 234, 255, 0.2);
-  --neon-glow: rgba(0,234,255,0.6);
+  --neon-glow: rgba(0, 234, 255, 0.6);
   --mirror-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
 }
 
@@ -300,49 +299,6 @@ section {
   color: var(--accent-color);
   transform: scale(1.2) translateY(-5px);
   filter: drop-shadow(0 0 5px var(--accent-color));
-}
-
-/* Scroll Indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  color: var(--light-text);
-  z-index: 10;
-}
-
-.scroll-indicator:hover {
-  color: var(--primary-color);
-}
-
-.mouse {
-  width: 2rem;
-  height: 3.5rem;
-  border: 2px solid var(--light-text);
-  border-radius: 1rem;
-  position: relative;
-}
-
-.scroller {
-  width: 0.4rem;
-  height: 0.6rem;
-  background: var(--light-text);
-  border-radius: 0.2rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: scroll 2s infinite;
-}
-
-@keyframes scroll {
-  0% { top: 0.5rem; opacity: 1; }
-  100% { top: 1.5rem; opacity: 0; }
 }
 
 /* Mirror Card Styles */
@@ -736,20 +692,31 @@ section {
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: 4rem;
+    padding-top: 5rem;
     min-height: auto;
-    padding-bottom: 6rem; /* Space for social links and scroll indicator */
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .hero-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
+    display: contents;
   }
 
   .hero-image {
     order: -1;
     max-width: 300px;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-text {
+    order: 0;
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
   }
 
   .image-container {
@@ -757,63 +724,81 @@ section {
     height: 250px;
   }
 
-  .hero-text {
-    order: 0;
+  .welcome-message {
+    order: -2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    z-index: 1000;
   }
 
-  .welcome-message {
-    order: 1;
-    position: static;
-    margin-top: 1rem;
-    text-align: center;
+  .welcome-text {
+    font-size: clamp(1.6rem, 4vw, 2rem);
   }
 
   .welcome-underline {
     margin: 0.6rem auto;
+    width: 200px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+  }
+
+  .profession {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    max-width: 90%;
+    margin: 0.5rem auto 1rem;
   }
 
   .hero-buttons {
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .social-links {
     position: static;
     flex-direction: row;
     justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    align-items: center;
+    margin: 1rem 0 3rem 0;
+    order: 1;
     z-index: 10;
+    gap: 2rem;
   }
 
-  .scroll-indicator {
-    position: static;
-    margin: 1rem auto; /* Center horizontally */
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Ensure it takes full width for centering */
-    transform: none; /* Remove transform for static positioning */
+  .social-icon {
+    font-size: 1.6rem;
+  }
+
+  .skills-section {
+    padding-top: 1.5rem;
   }
 
   .contact-content {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .contact-text h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .contact-text p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .form-input {
-    padding: 0.6rem;
-    font-size: 0.9rem;
+    padding: 0.7rem;
+    font-size: 0.95rem;
   }
 
   .contact-form {
@@ -823,19 +808,12 @@ section {
   .skills-grid, .blog-grid {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .skill-card, .project-card, .blog-card {
-    width: 280px;
-    height: 160px;
-  }
-
-  .welcome-text {
-    font-size: clamp(1.2rem, 3vw, 1.6rem);
-  }
-
-  .welcome-underline {
-    width: 180px;
+    width: 300px;
+    height: 180px;
   }
 
   .projects-track {
@@ -849,19 +827,27 @@ section {
   }
 
   .hero-section {
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
+  }
+
+  .welcome-text {
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  }
+
+  .welcome-underline {
+    width: 180px;
   }
 
   .hero-title {
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
   }
 
   .profession {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
   }
 
   .hero-subtitle {
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   }
 
   .image-container {
@@ -869,22 +855,31 @@ section {
     height: 200px;
   }
 
+  .hero-image {
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
   .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
   }
 
-  .welcome-text {
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
+  .social-icon {
+    font-size: 1.4rem;
   }
 
-  .welcome-underline {
-    width: 150px;
+  .social-links {
+    margin: 1rem 0 2.5rem 0;
+  }
+
+  .skills-section {
+    padding-top: 1rem;
   }
 
   .skill-card, .project-card, .blog-card {
-    width: 260px;
-    height: 140px;
+    width: 280px;
+    height: 160px;
   }
 
   .skill-card h3 {
@@ -917,21 +912,11 @@ section {
   }
 
   .contact-text p {
-    font-size: 0.7rem;
-  }
-
-  .form-input {
-    padding: 0.5rem;
     font-size: 0.8rem;
   }
 
-  .social-links {
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .scroll-indicator {
-    margin: 0.8rem auto;
-    margin-bottom: 1.5rem;
+  .form-input {
+    padding: 0.6rem;
+    font-size: 0.85rem;
   }
 }

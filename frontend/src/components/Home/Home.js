@@ -136,10 +136,6 @@ function Home() {
     setTeaserEmail(e.target.value);
   };
 
-  const handleScrollDown = () => {
-    document.querySelector('.skills-section').scrollIntoView({ behavior: 'smooth' });
-  };
-
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -207,33 +203,27 @@ function Home() {
               <div className="image-glow"></div>
             </div>
           </motion.div>
-        </div>
-        <div className="social-links">
-          <a
-            href="https://github.com/Harsh11-bit"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <FaGithub className="social-icon" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/harshtandel11/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin className="social-icon" />
-          </a>
-          <a href="mailto:tandelh009@gmail.com" aria-label="Email">
-            <FaEnvelope className="social-icon" />
-          </a>
-        </div>
-        <div className="scroll-indicator" onClick={handleScrollDown} role="button" tabIndex={0} onKeyPress={(e) => e.key === 'Enter' && handleScrollDown()}>
-          <div className="mouse">
-            <div className="scroller"></div>
+          <div className="social-links">
+            <a
+              href="https://github.com/Harsh11-bit"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FaGithub className="social-icon" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/harshtandel11/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="social-icon" />
+            </a>
+            <a href="mailto:tandelh009@gmail.com" aria-label="Email">
+              <FaEnvelope className="social-icon" />
+            </a>
           </div>
-          <span>Scroll Down</span>
         </div>
       </section>
 

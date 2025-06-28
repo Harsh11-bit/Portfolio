@@ -119,7 +119,8 @@ body {
 }
 
 .additional-description-section,
-.highlights-section {
+.highlights-section,
+.gallery-section {
   margin: 4rem 0;
 }
 
@@ -387,6 +388,23 @@ body {
 
   .section-title {
     font-size: 1.5rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #00ffff;
+    margin: 1.5rem auto 0;
+    box-shadow: 0 0 10px #00ffff;
+  }
+
+  .additional-description-section,
+  .highlights-section,
+  .gallery-section {
+    margin: 5rem 0;
   }
 
   .modal-content {
